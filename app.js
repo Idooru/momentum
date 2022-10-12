@@ -1,11 +1,7 @@
-const player = {
-  name: "nico",
-  point: 121212,
-  isHandsome: false,
-  isFat: true,
-};
+function sayHello() {
+  console.log("Hello my name is C");
+}
 
-console.log(player);
-player.isFat = false;
-player.lastName = "potato";
-console.log(player);
+sayHello("nico");
+sayHello("dal");
+sayHello("lynn");
