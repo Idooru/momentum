@@ -1,6 +1,13 @@
-const amIFat = null;
-let something;
-console.log(something, amIFat);
+const dayOfWeek = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
 
-const True = true;
-const False = false;
+// Get Item from Array
+console.log(dayOfWeek);
+
+// Add one more day to the array
+dayOfWeek.push("sun");
+
+console.log(dayOfWeek);
+console.log(dayOfWeek[6]);
+
+const toBuy = ["potato", "tomato", "pizza"];
+toBuy.push("kimchi");
