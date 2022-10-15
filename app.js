@@ -1,38 +1,38 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("input");
 const greeting = document.querySelector("#greeting");
-const greeting2 = document.querySelector("#greeting2");
+const logoutButton = document.querySelector("#logout");
 
-const HIDDEN_CLASSNAME = "hidden";
+const HIDDEN_CLASSNAMES = "hidden";
+const USERNAME_KEY = "username";
+const savedUser = localStorage.getItem(USERNAME_KEY);
 
-function onLoginSubmit(event) {
+const onLoginSubmit = (event) => {
   event.preventDefault();
-  loginForm.classList.add(HIDDEN_CLASSNAME);
+  loginForm.classList.add(HIDDEN_CLASSNAMES);
   const username = loginInput.value;
-  localStorage.setItem("username", username);
+  localStorage.setItem(USERNAME_KEY, username);
+  paintGreeting(username);
+};
+const paintGreeting = (username) => {
   greeting.innerText = `Hello ${username}`;
-  greeting.classList.remove(HIDDEN_CLASSNAME);
-  greeting2.classList.remove(HIDDEN_CLASSNAME);
+  greeting.classList.remove(HIDDEN_CLASSNAMES);
+  activateLogout();
+};
+
+const activateLogout = () => {
+  logoutButton.classList.remove(HIDDEN_CLASSNAMES);
+  logoutButton.addEventListener("click", () => {
+    localStorage.removeItem(USERNAME_KEY);
+    loginForm.classList.remove(HIDDEN_CLASSNAMES);
+    logoutButton.classList.remove(HIDDEN_CLASSNAMES);
+    greeting.classList.add(HIDDEN_CLASSNAMES);
+  });
+};
+
+if (savedUser === null) {
+  loginForm.classList.remove(HIDDEN_CLASSNAMES);
+  loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+  paintGreeting(savedUser);
 }
-
-function changeFontColor() {
-  const fontColor = greeting2.style.color;
-  let newColor;
-
-  switch (fontColor) {
-    case "":
-      newColor = "red";
-      break;
-    case "red":
-      newColor = "blue";
-      break;
-    case "blue":
-      newColor = "red";
-      break;
-  }
-
-  greeting2.style.color = newColor;
-}
-
-loginForm.addEventListener("submit", onLoginSubmit);
-greeting2.addEventListener("click", changeFontColor);
