@@ -1,5 +1,5 @@
 const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("input");
+const loginInput = document.querySelector("#login-input");
 const logoutButton = document.querySelector("#logout");
 const greeting = document.querySelector("#greeting");
 
@@ -32,6 +32,6 @@ if (savedUsername === null) {
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
   paintGreeting(savedUsername);
-  logoutButton.classList.remove(HIDDEN_CLASSNAMES);
-  logoutButton.addEventListener("click", logOut);
+  // logoutButton.classList.remove(HIDDEN_CLASSNAMES);
+  // logoutButton.addEventListener("click", logOut);
 }
