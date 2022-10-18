@@ -1,38 +1,37 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("input");
-const greeting = document.querySelector("#greeting");
 const logoutButton = document.querySelector("#logout");
+const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAMES = "hidden";
 const USERNAME_KEY = "username";
-const savedUser = localStorage.getItem(USERNAME_KEY);
+const savedUsername = localStorage.getItem(USERNAME_KEY);
 
-const onLoginSubmit = (event) => {
+function onLoginSubmit(event) {
   event.preventDefault();
+  localStorage.setItem(USERNAME_KEY, loginInput.value);
+  const username = localStorage.getItem(USERNAME_KEY);
   loginForm.classList.add(HIDDEN_CLASSNAMES);
-  const username = loginInput.value;
-  localStorage.setItem(USERNAME_KEY, username);
   paintGreeting(username);
-};
-const paintGreeting = (username) => {
-  greeting.innerText = `Hello ${username}`;
+}
+
+function paintGreeting(username) {
+  greeting.innerText = `Hello ${username}!`;
   greeting.classList.remove(HIDDEN_CLASSNAMES);
-  activateLogout();
-};
+}
 
-const activateLogout = () => {
-  logoutButton.classList.remove(HIDDEN_CLASSNAMES);
-  logoutButton.addEventListener("click", () => {
-    localStorage.removeItem(USERNAME_KEY);
-    loginForm.classList.remove(HIDDEN_CLASSNAMES);
-    logoutButton.classList.remove(HIDDEN_CLASSNAMES);
-    greeting.classList.add(HIDDEN_CLASSNAMES);
-  });
-};
+function logOut() {
+  localStorage.removeItem(USERNAME_KEY);
+  greeting.classList.add(HIDDEN_CLASSNAMES);
+  logoutButton.classList.add(HIDDEN_CLASSNAMES);
+  loginForm.classList.remove(HIDDEN_CLASSNAMES);
+}
 
-if (savedUser === null) {
+if (savedUsername === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAMES);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
-  paintGreeting(savedUser);
+  paintGreeting(savedUsername);
+  logoutButton.classList.remove(HIDDEN_CLASSNAMES);
+  logoutButton.addEventListener("click", logOut);
 }
