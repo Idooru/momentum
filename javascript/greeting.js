@@ -1,5 +1,5 @@
 const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-input");
+const loginInput = document.querySelector("input");
 const logoutButton = document.querySelector("#logout");
 const greeting = document.querySelector("#greeting");
 
