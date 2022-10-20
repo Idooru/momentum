@@ -1,2 +1,2 @@
-./launch.json
-./cspell.json
+./vscode/launch.json
+.cspell.json

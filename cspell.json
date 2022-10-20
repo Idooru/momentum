@@ -4,6 +4,6 @@
   "dictionaryDefinitions": [],
   "dictionaries": [],
   "words": [],
-  "ignoreWords": ["todos"],
+  "ignoreWords": ["todos", "HIDDEN_CLASSNAME", "style", "Hanam"],
   "import": []
 }

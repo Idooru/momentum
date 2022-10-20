@@ -1,3 +1,67 @@
+body {
+  background-image: "";
+}
+
 .hidden {
   display: none;
+}
+
+.style {
+  color: white;
+  text-align: center;
+}
+
+.shadow {
+  text-shadow: 2px 2px 10px black;
+}
+
+.input {
+  background: none;
+  appearance: none;
+}
+
+#login-input {
+  border: 0;
+  font-size: 30px;
+  color: #fff;
+  border-bottom: 2px-solid-#fff;
+}
+
+#login-input::placeholder {
+  text-align: center;
+  color: #fff;
+}
+
+#todo-input {
+  border: 0;
+  font-size: 30px;
+  color: #fff;
+}
+
+#todo-input::placeholder {
+  color: #fff;
+}
+
+#clock {
+  font-weight: 900;
+  font-size: 1150%;
+  font-style: italic;
+  font-family: "meslolgs nf";
+}
+
+#greeting {
+  color: wheat;
+  font-size: 60px;
+  font-family: "";
+}
+
+#todo-list {
+  text-align: center;
+  list-style: none;
+  font-size: 25px;
+}
+
+#quote {
+  font-size: 20px;
+  color: aquamarine;
 }

@@ -25,9 +25,9 @@ const quotes = [
     author: "엘버트 허버드",
   },
   { quote: "신은 용기있는자를 결코 버리지 않는다.", author: "켄러" },
-  { quote: "피할수 없으면 즐겨라", author: "로버트 엘리엇" },
+  { quote: "피할수 없으면 즐겨라.", author: "로버트 엘리엇" },
   {
-    quote: "화가 날 때는 100까지 세라. 최악일 때는 욕설을 퍼부어라",
+    quote: "화가 날 때는 100까지 세라. 최악일 때는 욕설을 퍼부어라.",
     author: "마크 트웨인",
   },
 ];
@@ -37,5 +37,23 @@ const author = document.querySelector("#quote span:last-child");
 
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
+function attachTyphoon(author) {
+  let arr = [];
+  let str = "";
+
+  for (let i = 0; i < author.length; i++) {
+    arr.push(author[i]);
+  }
+
+  arr.unshift("-");
+  arr.push("-");
+
+  for (let i = 0; i < arr.length; i++) {
+    str += arr[i];
+  }
+
+  return str;
+}
+
 quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
+author.innerText = attachTyphoon(todaysQuote.author);
