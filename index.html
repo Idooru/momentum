@@ -9,23 +9,23 @@
   </head>
   <body>
     <h1 id="clock" class="style shadow">00:00:00</h1>
-    <form id="login-form" class="hidden style input">
+    <form id="login-form" class="hidden style">
       <input
-        id="login-input"
         class="input"
         required
         maxlength="15"
         type="text"
         placeholder="what is your name?"
+        autocomplete="off"
       />
     </form>
     <h1 id="greeting" class="hidden style shadow"></h1>
     <form id="todo-form" class="hidden style">
       <input
-        id="todo-input"
         class="input"
         type="text"
         placeholder="Write your todo on today!"
+        autocomplete="off"
         required
       />
     </form>
