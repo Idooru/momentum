@@ -32,6 +32,8 @@ body {
   border-bottom: 5px solid rgb(173, 170, 170);
   border-radius: 15px;
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #login-input::placeholder {
@@ -67,9 +69,11 @@ body {
 }
 
 #greeting {
-  color: wheat;
+  color: rgb(155, 140, 115);
   font-size: 40px;
-  font-family: "";
+  font-family: "" Trebuchet MS ", " Lucida Sans Unicode ", " Lucida Grande ",
+  "
+    Lucida Sans ", Arial, sans-serif";
 }
 
 #todo-list {
