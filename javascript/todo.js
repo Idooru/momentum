@@ -25,16 +25,25 @@ function deleteToDo(event) {
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const button = document.createElement("button");
+  let button = document.createElement("button");
 
   toDoList.classList.remove("hidden");
+  button = styleRemoveButton(button);
   li.id = newTodo.id;
-  button.innerText = "❌";
-  button.addEventListener("click", deleteToDo);
   li.appendChild(span);
   li.appendChild(button);
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
+}
+
+function styleRemoveButton(button) {
+  const img = document.createElement("img");
+  img.src = "../img/icons/x_icon.png";
+  button.id = "remove-button";
+  button.type = "button";
+  button.appendChild(img);
+  button.addEventListener("click", deleteToDo);
+  return button;
 }
 
 function handleToDoSubmit(event) {
