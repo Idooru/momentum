@@ -13,8 +13,8 @@
       <input
         class="input"
         required
-        type="text"
         maxlength="15"
+        type="text"
         placeholder="what is your name?"
         autocomplete="off"
       />
@@ -23,26 +23,29 @@
     <form id="todo-form" class="hidden direction">
       <input
         class="input"
+        required
+        maxlength="20"
         type="text"
         placeholder="Write your todo on today!"
         autocomplete="off"
-        required
       />
     </form>
-    <ul id="todo-list" class="flex direction whiteColor shadow"></ul>
-    <div id="quote" class="direction shadow">
-      <span></span>
-      <span></span>
-    </div>
-    <div id="weather" class="direction whiteColor">
-      <span></span>
-      <span></span>
+    <ul id="todo-list" class="hidden direction whiteColor shadow"></ul>
+    <div id="quote-weather">
+      <div id="quote" class="direction shadow">
+        <span></span>
+        <span></span>
+      </div>
+      <div id="weather" class="direction whiteColor">
+        <span></span>
+        <span></span>
+      </div>
     </div>
     <script src="./javascript/greeting.js"></script>
     <script src="./javascript/clock.js"></script>
+    <script src="./javascript/todo.js"></script>
     <script src="./javascript/quote.js"></script>
     <script src="./javascript/background.js"></script>
-    <script src="./javascript/todo.js"></script>
     <script src="./javascript/weather.js"></script>
   </body>
 </html>
