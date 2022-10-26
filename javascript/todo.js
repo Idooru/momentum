@@ -22,28 +22,44 @@ function deleteToDo(event) {
   }
 }
 
+function doneToDo(event) {
+  const a = event.target.parentElement.innerText;
+  a.strike();
+}
+
 function paintToDo(newTodo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  let button = document.createElement("button");
+  let removeButton = document.createElement("button");
+  let doneButton = document.createElement("button");
 
-  toDoList.classList.remove("hidden");
-  button = styleRemoveButton(button);
+  removeButton = paintRemoveButton(removeButton);
+  doneButton = paintDoneButton(doneButton);
+
   li.id = newTodo.id;
   li.appendChild(span);
-  li.appendChild(button);
+  li.appendChild(doneButton);
+  li.appendChild(removeButton);
+
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
+  toDoList.classList.remove("hidden");
 }
 
-function styleRemoveButton(button) {
-  const img = document.createElement("img");
-  img.src = "../img/icons/x_icon.png";
-  button.id = "remove-button";
-  button.type = "button";
-  button.appendChild(img);
-  button.addEventListener("click", deleteToDo);
-  return button;
+function paintRemoveButton(removeButton) {
+  removeButton.type = "button";
+  removeButton.classList = "material-symbols-outlined button";
+  removeButton.innerText = "delete";
+  removeButton.addEventListener("click", deleteToDo);
+  return removeButton;
+}
+
+function paintDoneButton(doneButton) {
+  doneButton.type = "button";
+  doneButton.classList = "material-symbols-outlined button";
+  doneButton.innerText = "done";
+  doneButton.addEventListener("click", doneToDo);
+  return doneButton;
 }
 
 function handleToDoSubmit(event) {
