@@ -66,6 +66,12 @@ function paintToDo(newTodo) {
   removeButton = paintRemoveButton(removeButton);
   doneButton = paintDoneButton(doneButton, newTodo);
 
+  const result = isTodoCountLengthOverSeven();
+
+  if (result) {
+    return;
+  }
+
   li.id = newTodo.id;
   li.appendChild(span);
   li.appendChild(doneButton);
@@ -74,14 +80,16 @@ function paintToDo(newTodo) {
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
   toDoList.classList.remove("hidden");
-
-  checkTodoCount();
 }
 
-function checkTodoCount() {
-  if (toDos.length > 3) {
+function isTodoCountLengthOverSeven() {
+  if (toDos.length >= 8) {
+    alert("You can not add more!");
+    toDos.pop(toDos[toDos.length - 1]);
+    saveToDo();
+    return true;
   } else {
-    return;
+    return false;
   }
 }
 
