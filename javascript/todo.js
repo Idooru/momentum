@@ -66,16 +66,13 @@ function paintToDo(newTodo) {
   removeButton = paintRemoveButton(removeButton);
   doneButton = paintDoneButton(doneButton, newTodo);
 
-  const result = isTodoCountLengthOverSeven();
-
-  if (result) {
-    return;
-  }
+  if (isTodoCountLengthOverSeven()) return;
 
   li.id = newTodo.id;
   li.appendChild(span);
   li.appendChild(doneButton);
   li.appendChild(removeButton);
+  li.style.marginBottom = "3.5px";
 
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
