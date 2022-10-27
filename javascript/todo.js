@@ -23,8 +23,23 @@ function deleteToDo(event) {
 }
 
 function doneToDo(event) {
-  const a = event.target.parentElement.innerText;
-  a.strike();
+  const todo = event.target.parentElement;
+  const done = document.querySelector("#done");
+  const text = todo.style.textDecoration;
+
+  text === "line-through"
+    ? designDoneToDo(todo, done)
+    : designUndoneToDo(todo, done);
+}
+
+function designDoneToDo(todo, done) {
+  todo.style.textDecoration = "none";
+  done.style.color = "red";
+}
+
+function designUndoneToDo(todo, done) {
+  todo.style.textDecoration = "line-through";
+  done.style.color = "#00ff62";
 }
 
 function paintToDo(newTodo) {
@@ -55,6 +70,7 @@ function paintRemoveButton(removeButton) {
 }
 
 function paintDoneButton(doneButton) {
+  doneButton.id = "done";
   doneButton.type = "button";
   doneButton.classList = "material-symbols-outlined button";
   doneButton.innerText = "done";
