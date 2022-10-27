@@ -38,13 +38,13 @@ function doneToDo(event) {
     (idx) => idx.id.toString() === todo.id
   );
 
-  const button = document.querySelector(
+  const doneButton = document.querySelector(
     `ul > li > #${"_" + selectedTodo[0].id}`
   );
 
   text === "line-through"
-    ? designDoneToDo(todo, button)
-    : designUndoneToDo(todo, button);
+    ? designDoneToDo(todo, doneButton)
+    : designUndoneToDo(todo, doneButton);
 }
 
 function designDoneToDo(todo, doneButton) {
