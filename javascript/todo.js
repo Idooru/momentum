@@ -22,24 +22,39 @@ function deleteToDo(event) {
   }
 }
 
+function getInstanceElement(instance) {
+  const newArray = [];
+  for (let i = 0; i < instance.length; i++) {
+    newArray.push(instance[i]);
+  }
+  return newArray;
+}
+
 function doneToDo(event) {
   const todo = event.target.parentElement;
-  const done = document.querySelector("#done");
   const text = todo.style.textDecoration;
 
+  const selectedTodo = getInstanceElement(toDos).filter(
+    (idx) => idx.id.toString() === todo.id
+  );
+
+  const button = document.querySelector(
+    `ul > li > #${"_" + selectedTodo[0].id}`
+  );
+
   text === "line-through"
-    ? designDoneToDo(todo, done)
-    : designUndoneToDo(todo, done);
+    ? designDoneToDo(todo, button)
+    : designUndoneToDo(todo, button);
 }
 
-function designDoneToDo(todo, done) {
+function designDoneToDo(todo, doneButton) {
   todo.style.textDecoration = "none";
-  done.style.color = "red";
+  doneButton.style.color = "red";
 }
 
-function designUndoneToDo(todo, done) {
+function designUndoneToDo(todo, doneButton) {
   todo.style.textDecoration = "line-through";
-  done.style.color = "#00ff62";
+  doneButton.style.color = "#00ff62";
 }
 
 function paintToDo(newTodo) {
@@ -49,7 +64,7 @@ function paintToDo(newTodo) {
   let doneButton = document.createElement("button");
 
   removeButton = paintRemoveButton(removeButton);
-  doneButton = paintDoneButton(doneButton);
+  doneButton = paintDoneButton(doneButton, newTodo);
 
   li.id = newTodo.id;
   li.appendChild(span);
@@ -59,6 +74,15 @@ function paintToDo(newTodo) {
   span.innerText = newTodo.text;
   toDoList.appendChild(li);
   toDoList.classList.remove("hidden");
+
+  checkTodoCount();
+}
+
+function checkTodoCount() {
+  if (toDos.length > 3) {
+  } else {
+    return;
+  }
 }
 
 function paintRemoveButton(removeButton) {
@@ -69,8 +93,8 @@ function paintRemoveButton(removeButton) {
   return removeButton;
 }
 
-function paintDoneButton(doneButton) {
-  doneButton.id = "done";
+function paintDoneButton(doneButton, newTodo) {
+  doneButton.id = "_" + newTodo.id;
   doneButton.type = "button";
   doneButton.classList = "material-symbols-outlined button";
   doneButton.innerText = "done";
