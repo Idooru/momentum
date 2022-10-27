@@ -15,6 +15,8 @@ function onGeoOk(position) {
       const temp = data.main.temp;
       const city = data.name;
 
+      console.log(data);
+
       conditionOfWeather(weather, weatherElement, temp);
       conditionOfCity(city, cityElement);
 
@@ -23,23 +25,28 @@ function onGeoOk(position) {
 }
 
 function conditionOfWeather(weather, weatherElement, temp) {
-  let nowWeather;
+  weatherElement.classList = "material-symbols-outlined button";
+
   switch (weather) {
     case "Haze":
-      nowWeather = "안개";
+      weatherElement.innerText = "Cloudy Filled";
       break;
     case "Clouds":
-      nowWeather = "구름";
+      weatherElement.innerText = "Cloudy";
       break;
     case "Clear":
-      nowWeather = "맑음";
+      weatherElement.innerText = "Sunny";
       break;
+    case "Rain":
+      weatherElement.innerText = "Rainy";
+      break;
+    case "Snow":
+      weatherElement.innerText = "Snowing";
     default:
-      nowWeather = "데이터 불러오기 실패";
+      weatherElement.classList = "none";
+      weatherElement.innerText = "데이터 불러오기 실패";
       break;
   }
-
-  weatherElement.innerText = `날씨:${nowWeather} 평균 기온:${temp}도`;
 }
 
 function conditionOfCity(city, cityElement) {
