@@ -9,11 +9,12 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <script>
-      console.log(
-        "아이콘 출처 : https://fonts.gooleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-      );
-    </script>
+    <script defer src="./javascript/greeting.js"></script>
+    <script defer src="./javascript/clock.js"></script>
+    <script defer src="./javascript/todo.js"></script>
+    <script defer src="./javascript/quote.js"></script>
+    <script defer src="./javascript/background.js"></script>
+    <script defer src="./javascript/weather.js"></script>
     <title>Momentum</title>
   </head>
   <body>
@@ -39,20 +40,14 @@
         autocomplete="off"
       />
     </form>
-    <ul id="todo-list" class="hidden direction whiteColor border"></ul>
+    <ul id="todo-list" class="hidden direction border"></ul>
     <div id="quote" class="direction shadow">
       <span></span>
       <span></span>
     </div>
-    <div id="weather">
-      <span id="now-weather"></span>
-      <span id="now-city"></span>
+    <div id="now-weather">
+      <span id="weatherInfo"></span>
+      <img id="weatherIcon" />
     </div>
-    <script src="./javascript/greeting.js"></script>
-    <script src="./javascript/clock.js"></script>
-    <script src="./javascript/todo.js"></script>
-    <script src="./javascript/quote.js"></script>
-    <script src="./javascript/background.js"></script>
-    <script src="./javascript/weather.js"></script>
   </body>
 </html>
