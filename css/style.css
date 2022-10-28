@@ -22,10 +22,6 @@ body {
   text-align: center;
 }
 
-.whiteColor {
-  color: white;
-}
-
 .shadow {
   text-shadow: 4px 4px 7px rgb(0, 0, 0);
 }
@@ -82,10 +78,10 @@ body {
 }
 
 #todo-list {
-  padding-top: 7px;
+  padding-top: 20px;
   padding-left: 190px;
   padding-right: 80px;
-  padding-bottom: 7px;
+  padding-bottom: 20px;
   margin-left: 600px;
   margin-right: 600px;
   text-align: center;
@@ -97,7 +93,7 @@ body {
 
 #quote {
   position: fixed;
-  bottom: 50px;
+  bottom: 30px;
   width: 100%;
   overflow: hidden;
   margin-top: 0px;
@@ -105,21 +101,20 @@ body {
   font-size: 20px;
 }
 
-#weather {
+#now-weather {
   position: absolute;
   top: 10px;
   right: 30px;
-  margin-right: 0px;
+  color: rgb(255, 255, 255);
+  margin-left: 200px;
 }
 
-#now-weather {
-  margin-top: 20px;
-  margin-right: 20px;
-  color: wheat;
+#weatherInfo {
 }
 
-#now-city {
-  margin-top: 20px;
-  margin-right: 20px;
-  color: wheat;
+#weatherIcon {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  left: 30px;
 }
