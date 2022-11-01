@@ -14,8 +14,8 @@ const images = [
 ];
 
 const chosenImage = images[Math.floor(Math.random() * images.length)];
-body.style.backgroundImage = `url(/img/backgrounds/${chosenImage})`;
+const url = `url(./img/backgrounds/${chosenImage})`;
 
-// function changeBackgroundImg() {}
+body.style.backgroundImage = url;
 
-// setInterval(changeBackgroundImg, 3000);
+// ../img/backgrounds/${chosenImage}
